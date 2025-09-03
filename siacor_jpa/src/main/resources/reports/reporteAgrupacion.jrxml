@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN"
+ "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" 
+              name="HojaRutaDocumentos" 
+              pageWidth="612" 
+              pageHeight="792" 
+              columnWidth="572" 
+              leftMargin="20" 
+              rightMargin="20" 
+              topMargin="20" 
+              bottomMargin="20" 
+              uuid="a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d">
+
+    <style name="ArialBlackStyle" fontName="Arial Black" isBold="true" pdfFontName="Helvetica-Bold" pdfEncoding="Cp1252"/>
+    <style name="ArialStyle" fontName="Arial" pdfFontName="Helvetica" pdfEncoding="Cp1252"/>
+    <style name="VerdanaStyle" fontName="Verdana" pdfFontName="Helvetica" pdfEncoding="Cp1252"/>
+    <style name="ArialBlackStyleEncabezado" fontName="Arial Black" isBold="true" pdfFontName="Helvetica-Bold" pdfEncoding="Cp1252" forecolor="#FFFFFF" />
+
+    <parameter name="nuri" class="java.lang.String"/>
+    <parameter name="barcode" class="byte[]"/>
+
+    <field name="nuri" class="java.lang.String"/>
+    <field name="fechaCreacion" class="java.lang.String"/>
+    <field name="usuario" class="java.lang.String"/>
+    <field name="oficial" class="java.lang.String"/>
+
+    <title>
+        <band height="120">
+            <rectangle>
+                <reportElement x="0" y="0" width="572" height="120" mode="Opaque" backcolor="#FFFFFF"/>
+                <graphicElement>
+                    <pen lineWidth="1.0" lineColor="#000000"/>
+                </graphicElement>
+            </rectangle>
+            <!-- Logo de la institución -->
+            <rectangle>
+                <reportElement x="0" y="0" width="90" height="120" mode="Opaque" backcolor="#FFFFFF"/>
+                <graphicElement>
+                    <pen lineWidth="1.0" lineColor="#000000"/>
+                </graphicElement>
+            </rectangle>
+            <image>
+                <reportElement x="13" y="15" width="95" height="90" uuid="f1e2d3c4-b5a6-4f7e-8d9c-0f1e2d3c4b5a"/>
+                <imageExpression><![CDATA["classpath:reports/imagenes/logo_MUMANAL.png"]]></imageExpression>
+            </image>
+            <!-- Título del reporte -->
+            <staticText>
+                <reportElement x="50" y="26" width="372" height="30" uuid="b2a3c4d5-e6f7-4a8b-9c0d-1e2f3a4b5c6d" style="ArialBlackStyle"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="16" isBold="true"/>
+                </textElement>
+                <text><![CDATA[NUR(I) DE AGRUPACION]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="50" y="53" width="372" height="20" uuid="c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f" style="ArialBlackStyle"/>
+                <textElement textAlignment="Center">
+                    <font size="10" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA["MUTUALIDAD DEL MAGISTERIO NACIONAL"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="50" y="71" width="372" height="20" uuid="d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8" style="ArialBlackStyle"/>
+                <textElement textAlignment="Center">
+                    <font size="10" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA["MUMANAL"]]></textFieldExpression>
+            </textField>
+            <image>
+                <reportElement x="210" y="85" width="85" height="35" />
+                <imageExpression><![CDATA["classpath:reports/imagenes/agrupar_logo.png"]]></imageExpression>
+            </image>
+            <!-- NURI -->
+            <rectangle>
+                <reportElement x="380" y="0" width="192" height="120" mode="Opaque" backcolor="#FFFFFF"/>
+                <graphicElement>
+                    <pen lineWidth="1.0" lineColor="#000000"/>
+                </graphicElement>
+            </rectangle>
+            <rectangle>
+                <reportElement x="380" y="0" width="192" height="20" mode="Opaque" backcolor="#FFFFFF"/>
+                <graphicElement>
+                    <pen lineWidth="1.0" lineColor="#000000"/>
+                </graphicElement>
+            </rectangle>
+            <textField>
+                <reportElement x="382" y="2" width="190" height="20" uuid="d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8" style="ArialBlackStyle"/>
+                <textElement textAlignment="Center">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA["NURI"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="382" y="22" width="190" height="22" uuid="d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8" style="ArialBlackStyle"/>
+                <textElement textAlignment="Center">
+                    <font size="15" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{nuri}]]></textFieldExpression>
+            </textField>
+
+            <image>
+                <reportElement x="410" y="49" width="187" height="68"/>
+                <imageExpression><![CDATA[$P{barcode}]]></imageExpression>
+            </image>
+        </band>
+    </title>
+
+    <!-- Encabezado de columnas -->
+    <columnHeader>
+        <band height="40">
+            <staticText>
+                <reportElement x="0" y="0" width="572" height="20" backcolor="#015EBE" mode="Opaque" style="ArialBlackStyleEncabezado"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle" >
+                    <font isBold="true" size="10"  />
+                </textElement>
+                <text><![CDATA[NUR(I)'s AGRUPADOS]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement x="0" y="20" width="150" height="20" backcolor="#015EBE" mode="Opaque" style="ArialBlackStyleEncabezado"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle" >
+                    <font isBold="true" size="10"  />
+                </textElement>
+                <text><![CDATA[NUR(I)]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement x="150" y="20" width="130" height="20" backcolor="#015EBE" mode="Opaque" style="ArialBlackStyleEncabezado"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000" />
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true" size="10" />
+                </textElement>
+                <text><![CDATA[FECHA CREACIÓN]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement x="280" y="20" width="145" height="20" backcolor="#015EBE" mode="Opaque" style="ArialBlackStyleEncabezado"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000" />
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true" size="10" />
+                </textElement>
+                <text><![CDATA[USUARIO]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement x="425" y="20" width="147" height="20" backcolor="#015EBE" mode="Opaque" style="ArialBlackStyleEncabezado"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000" />
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true" size="10" />
+                </textElement>
+                <text><![CDATA[OFICIAL]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+
+    <!-- Detalle del reporte -->
+    <detail>
+        <band height="20">
+            <textField>
+                <reportElement x="0" y="0" width="150" height="20" style="VerdanaStyle" />
+                <box>
+                    <pen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="11" />
+                </textElement>
+                <textFieldExpression><![CDATA[$F{nuri}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="150" y="0" width="130" height="20" style="VerdanaStyle" />
+                <box>
+                    <pen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="11" />
+                </textElement>
+                <textFieldExpression><![CDATA[$F{fechaCreacion}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="280" y="0" width="145" height="20" style="VerdanaStyle" />
+                <box>
+                    <pen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="11" />
+                </textElement>
+                <textFieldExpression><![CDATA[$F{usuario}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="425" y="0" width="147" height="20" style="VerdanaStyle" />
+                <box>
+                    <pen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="11" />
+                </textElement>
+                <textFieldExpression><![CDATA[$F{oficial}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+
+    <summary>
+        <band height="80">
+            <staticText>
+                <reportElement x="0" y="20" width="572" height="60" />
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Nota: Señor usuario, verifique al momento de recibir este documento, que todos los NUR(I)'s adjuntos se encuentren fisicamente junto  esta caratula, de lo contrario no reciba el mismo.]]></text>
+            </staticText>
+        </band>
+    </summary>
+
+</jasperReport>
+

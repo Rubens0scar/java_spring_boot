@@ -1,0 +1,10 @@
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/BD_Mumanal
+    username: gguzman
+    password: S1stemas$$$
+jwt:
+  secret: 3bJk$!aP9zR#mK!x8@LqWvN6tY^uE5rF
+  expiration: 3600000
+server:
+  port: 7777

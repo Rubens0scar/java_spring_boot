@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: siacor
+  # datasource:
+  #   driver-class-name: org.postgresql.Driver
+  #   url: jdbc:postgresql://192.168.10.90:5432/BD_Mumanal
+  #   username: postgres
+  #   password: ruben0scar
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://192.168.10.21:5432/BD_Mumanal
+    username: gguzman
+    password: S1stemas$$$
+  servlet:
+    multipart:
+      max-file-size: 30MB
+      max-request-size: 30MB
+jwt:
+  secret: "secretGenerated"
+  expiration: 43200
+  refreshExpirationDateInMs: 1000
+  minutosExpiracion: 60
+server:
+  port: 9999
+# jasper:
+#   report-dir: classpath:reports/

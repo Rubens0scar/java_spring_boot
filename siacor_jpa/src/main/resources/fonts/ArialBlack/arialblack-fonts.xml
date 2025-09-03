@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+    <fontFamily name="Arial Black">
+        <normal><![CDATA[ArialBlack.ttf]]></normal>
+        <bold><![CDATA[ArialBlack.ttf]]></bold>
+        <italic><![CDATA[ArialBlack.ttf]]></italic>
+        <boldItalic><![CDATA[ArialBlack.ttf]]></boldItalic>
+        <pdfEncoding>Cp1252</pdfEncoding>
+        <pdfEmbedded>true</pdfEmbedded>
+    </fontFamily>
+</fontFamilies>
